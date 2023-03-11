@@ -1,11 +1,12 @@
 import { useState } from "react";
-
-import "./App.css";
+import TopBar from "./topbar/TopBar";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <div className="App">abc </div>;
+  return (
+    <>
+      <TopBar />
+    </>
+  );
 }
 
 export default App;
