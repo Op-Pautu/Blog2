@@ -50,10 +50,10 @@
 }
 
 .writeText {
-  width: 70vw;
-  height: 100vh;
+  width: 90vw;
+  height: 50vh;
   font-family: inherit;
-  font-size: 20px;
+  font-size: 2vw;
 }
 
 .writeSubmit {
@@ -69,4 +69,31 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .writeImg {
+    margin-left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  .writeFormGroup {
+    margin-left: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .writeInput,
+  .writeText {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+
+  .writeSubmit {
+    top: 20px;
+    right: 20px;
+  }
 }
