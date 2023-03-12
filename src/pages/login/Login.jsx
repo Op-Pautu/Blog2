@@ -5,9 +5,9 @@ export default function Login() {
       <span className="loginTitle">Login</span>
       <form className="loginForm">
         <label>Email</label>
-        <input type="text" className="loginInput" />
+        <input type="text" className="loginInput" required />
         <label>Password</label>
-        <input type="password" className="loginInput" />
+        <input type="password" className="loginInput" required />
         <button className="loginButton">Login</button>
       </form>
       <button className="loginRegisterButton">Register</button>
