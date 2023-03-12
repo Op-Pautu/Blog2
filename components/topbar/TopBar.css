@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
     font-family: 'Josefin Sans', sans-serif;
-
+    z-index: 999;
 }
 
 .topLeft,
@@ -38,6 +38,8 @@
     height: 40px;
     border-radius: 50%;
     object-fit: cover;
+    margin-right: 15px;
+    cursor: pointer;
 }
 
 .topList {
@@ -46,10 +48,11 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
-    gap: 15px;
+
 }
 
 .topListItem {
+    margin-right: 20px;
     font-size: 18px;
     font-weight: 300;
     cursor: pointer;
@@ -59,5 +62,5 @@
     font-size: 18px;
     color: #666;
     cursor: pointer;
-    margin-left: 15px;
+
 }

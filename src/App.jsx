@@ -1,10 +1,12 @@
 import { useState } from "react";
-import TopBar from "./topbar/TopBar";
+import TopBar from "../components/topbar/TopBar";
+import Home from "../pages/home/Home";
 
 function App() {
   return (
     <>
       <TopBar />
+      <Home />
     </>
   );
 }
