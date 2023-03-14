@@ -2,10 +2,12 @@ const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
+const userRoute = require("./routes/users");
 
 const app = express();
 dotenv.config();
 app.use(express.json());
+
 mongoose
   .connect(process.env.MONGO_URL)
   .then(() => {
@@ -15,7 +17,9 @@ mongoose
     console.log(err);
   });
 
+//routes
 app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
 
 app.use("/", (req, res) => {
   res.send("Hello World");
