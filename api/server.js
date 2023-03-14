@@ -21,10 +21,6 @@ mongoose
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 
-app.use("/", (req, res) => {
-  res.send("Hello World");
-});
-
 app.listen(3000, () => {
   console.log("Server running on port 3000");
 });
