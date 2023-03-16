@@ -7,7 +7,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Single from "./pages/single/Single";
 function App() {
-  const currentUser = true;
+  const currentUser = false;
   return (
     <>
       <TopBar />

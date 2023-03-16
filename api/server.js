@@ -1,20 +1,24 @@
 const express = require("express");
+const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-const multer = require("multer");
-
 //routes
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
-
-const app = express();
-dotenv.config();
+const cors = require("cors");
 app.use(express.json());
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+dotenv.config();
+
+const multer = require("multer");
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("Connected to MongoDB");
   })
@@ -41,6 +45,6 @@ app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+app.listen(5000, () => {
+  console.log("Server running on port 5000");
 });

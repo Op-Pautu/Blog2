@@ -1,6 +1,6 @@
 import "./Post.css";
-
-export default function Post() {
+import { Link } from "react-router-dom";
+export default function Post({ post }) {
   return (
     <div className="post">
       <img
@@ -10,38 +10,19 @@ export default function Post() {
       />
       <div className="postInfo">
         <div className="postCats">
-          <span className="postCat">Music</span>
-          <span className="postCat">Life</span>
+          {post.categories.map((c) => (
+            <span className="postCat">{c.name}</span>
+          ))}
         </div>
-        <span className="postTitle">Lorem ipsum dolor sit amet.</span>
+        <Link to={`/post/${post._id}`} className="link">
+          <span className="postTitle">{post.title}</span>
+        </Link>
         <hr />
-        <span className="postDate">1 hour ago</span>
+        <span className="postDate">
+          {new Date(post.createdAt).toDateString()}
+        </span>
       </div>
-      <p className="postDesc">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-        voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Quisquam, voluptatum. lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Quisquam, voluptatum. lorem ipsum
-        dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem
-        ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-        voluptatum. lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Quisquam, orem ipsum dolor sit amet consectetur adipisicing elit.
-        Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Quisquam, voluptatum. Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Quisquam, voluptatum. lorem ipsum dolor sit amet
-        consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum dolor
-        sit amet consectetur adipisicing elit. Quisquam, voluptatum. Lorem ipsum
-        dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. lorem
-        ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-        voluptatum. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-        Quisquam, voluptatum. lorem ipsum dolor sit amet consectetur adipisicing
-        elit. Quisquam,
-      </p>
+      <p className="postDesc">{post.desc}</p>
     </div>
   );
 }
