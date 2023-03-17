@@ -6,8 +6,10 @@ import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
 import Single from "./pages/single/Single";
+import { useContext } from "react";
+import { Context } from "./context/Context";
 function App() {
-  const currentUser = false;
+  const { currentUser } = useContext(Context);
   return (
     <>
       <TopBar />
