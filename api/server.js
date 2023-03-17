@@ -7,13 +7,14 @@ const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
+const multer = require("multer");
+const path = require("path");
 const cors = require("cors");
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 dotenv.config();
 
-const multer = require("multer");
-
+app.use("/images", express.static(path.join(__dirname, "/images")));
 mongoose
   .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -31,7 +32,7 @@ const storage = multer.diskStorage({
     cb(null, "images");
   },
   filename: (req, file, cb) => {
-    cb(null, "Rectangle.png");
+    cb(null, req.body.name);
   },
 });
 const upload = multer({ storage: storage });
