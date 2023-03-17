@@ -2,7 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Register.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 export default function Register() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +19,7 @@ export default function Register() {
         password,
       });
       //redirect to login page
-      res.data && window.location.replace("/login");
+      res.data && navigate("/login");
     } catch (err) {
       setError(true);
     }

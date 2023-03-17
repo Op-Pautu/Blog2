@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { Context } from "../../context/Context";
 import { useRef, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Login.css";
 export default function Login() {
+  const navigate = useNavigate();
   const userRef = useRef();
   const passwordRef = useRef();
   const { dispatch, isFetching } = useContext(Context);
@@ -17,11 +19,12 @@ export default function Login() {
         password: passwordRef.current.value,
       });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+      navigate("/");
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });
     }
   };
-  console.log(isFetching);
+
   return (
     <div className="login">
       <span className="loginTitle">Login</span>
